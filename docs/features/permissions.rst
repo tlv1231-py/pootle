@@ -84,6 +84,19 @@ administrate
   administrator)
 
 
+Server-wide Permissions
+^^^^^^^^^^^^^^^^^^^^^^^
+
+These permissions only make sense server-wide, so they can only be set on the
+"Permissions" tab of the administration page:
+
+create_project
+  The right to create new projects. Users with this permission get access to
+  the "Projects" tab of the administration page, where they can add new
+  projects. It does not grant any rights over the already existing projects,
+  which can only be listed, altered or removed by server administrators.
+
+
 .. _permissions#permissions_interface:
 
 Permissions interface

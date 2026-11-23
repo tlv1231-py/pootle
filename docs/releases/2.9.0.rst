@@ -60,6 +60,8 @@ Changes
   - Don't redirect to browse view after translating last unit unless all
     previous units have been translated.
 
+- Added a new ``create_project`` permission that allows granting project
+  creation rights to users that are not server administrators.
 - Improved performance on permissions forms by using a live search field for
   users.
 - Fixed issues with variables in translations.

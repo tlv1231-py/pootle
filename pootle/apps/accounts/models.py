@@ -202,6 +202,19 @@ class User(AbstractBaseUser):
         }
         return self.permissionset_set.filter(**criteria).exists()
 
+    @cached_property
+    def can_create_projects(self):
+        """Tells if the user is allowed to create new projects."""
+        from pootle_app.models.directory import Directory
+        from pootle_app.models.permissions import check_user_permission
+
+        if self.is_anonymous:
+            return False
+        if self.is_superuser:
+            return True
+        return check_user_permission(
+            self, 'create_project', Directory.objects.root)
+
     def get_full_name(self):
         """Returns the user's full name."""
         return self.full_name.strip()
